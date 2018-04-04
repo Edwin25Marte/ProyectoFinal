@@ -30,9 +30,26 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>ProyectoFinal.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,14 +60,190 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="BLL\ActorBLL.cs" />
+    <Compile Include="BLL\ClientesBLL.cs" />
+    <Compile Include="BLL\FactDetalleBLL.cs" />
+    <Compile Include="BLL\FacturaBLL.cs" />
+    <Compile Include="BLL\GenerosBLL.cs" />
+    <Compile Include="BLL\PelDetBLL.cs" />
+    <Compile Include="BLL\PeliculasBLL.cs" />
+    <Compile Include="BLL\UsuariosBLL.cs" />
+    <Compile Include="Consultas\CActoresForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Consultas\CActoresForm.Designer.cs">
+      <DependentUpon>CActoresForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\CClientesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\CClientesForm.Designer.cs">
+      <DependentUpon>CClientesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\CFacturaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\CFacturaForm.Designer.cs">
+      <DependentUpon>CFacturaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\CGenerosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\CGenerosForm.Designer.cs">
+      <DependentUpon>CGenerosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\CPeliculasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\CPeliculasForm.Designer.cs">
+      <DependentUpon>CPeliculasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\CUsuariosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\CUsuariosForm.Designer.cs">
+      <DependentUpon>CUsuariosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Contexto.cs" />
+    <Compile Include="Entidades\Actores.cs" />
+    <Compile Include="Entidades\Client.cs" />
+    <Compile Include="Entidades\Fact.cs" />
+    <Compile Include="Entidades\FactDetalle.cs" />
+    <Compile Include="Entidades\GenAct.cs" />
+    <Compile Include="Entidades\Generos.cs" />
+    <Compile Include="Entidades\Peli.cs" />
+    <Compile Include="Entidades\Us.cs" />
+    <Compile Include="Login\LogInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\LogInForm.Designer.cs">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuForm.Designer.cs">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\FacturaDetalleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\FacturaDetalleForm.Designer.cs">
+      <DependentUpon>FacturaDetalleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\RegActoresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\RegActoresForm.Designer.cs">
+      <DependentUpon>RegActoresForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\RegClientesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\RegClientesForm.Designer.cs">
+      <DependentUpon>RegClientesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registros\RegGenerosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\RegGenerosForm.Designer.cs">
+      <DependentUpon>RegGenerosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\RegPeliculasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\RegPeliculasForm.Designer.cs">
+      <DependentUpon>RegPeliculasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\RegUsuariosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\RegUsuariosForm.Designer.cs">
+      <DependentUpon>RegUsuariosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ActorCrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ActorCrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\ActorReporteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ActorReporteForm.Designer.cs">
+      <DependentUpon>ActorReporteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ClienteCrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClienteCrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\ClientesReporteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ClientesReporteForm.Designer.cs">
+      <DependentUpon>ClientesReporteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FacturaCrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FacturaCrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\FacturaReportesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FacturaReportesForm.Designer.cs">
+      <DependentUpon>FacturaReportesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\PelCrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PelCrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\PelReportesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\PelReportesForm.Designer.cs">
+      <DependentUpon>PelReportesForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Consultas\CActoresForm.resx">
+      <DependentUpon>CActoresForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\CClientesForm.resx">
+      <DependentUpon>CClientesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\CFacturaForm.resx">
+      <DependentUpon>CFacturaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\CGenerosForm.resx">
+      <DependentUpon>CGenerosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\CPeliculasForm.resx">
+      <DependentUpon>CPeliculasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\CUsuariosForm.resx">
+      <DependentUpon>CUsuariosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\LogInForm.resx">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm.resx">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\FacturaDetalleForm.resx">
+      <DependentUpon>FacturaDetalleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\RegActoresForm.resx">
+      <DependentUpon>RegActoresForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\RegClientesForm.resx">
+      <DependentUpon>RegClientesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -60,6 +253,45 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Registros\RegGenerosForm.resx">
+      <DependentUpon>RegGenerosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\RegPeliculasForm.resx">
+      <DependentUpon>RegPeliculasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\RegUsuariosForm.resx">
+      <DependentUpon>RegUsuariosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ActorCrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ActorCrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ActorReporteForm.resx">
+      <DependentUpon>ActorReporteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ClienteCrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ClienteCrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ClientesReporteForm.resx">
+      <DependentUpon>ClientesReporteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FacturaCrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FacturaCrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FacturaReportesForm.resx">
+      <DependentUpon>FacturaReportesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\PelCrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PelCrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\PelReportesForm.resx">
+      <DependentUpon>PelReportesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -69,6 +301,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Script\Dbase.sql" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
